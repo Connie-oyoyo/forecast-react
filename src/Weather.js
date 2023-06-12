@@ -39,11 +39,11 @@ return (
               <div>
                 <strong></strong>
                 <span className="units">
-                  <a href="#" id="celsius-link" class="active">
+                  <a href="/" id="celsius-link" class="active">
                     <strong>20</strong> ºC
                   </a>{" "}
                   |
-                  <a href="#" id="fahrenheit-link">
+                  <a href="/" id="fahrenheit-link">
                     ºF
                   </a>
                 </span>
@@ -79,7 +79,7 @@ return (
         </div>
       </div>
       <small>
-      <a href="https://github.com/Connie-oyoyo/forecast-react" target="_blank"> Open-source code </a>
+      <a href="https://github.com/Connie-oyoyo/forecast-react"> Open-source code </a>
       by Connie Oyoyo 
       </small>
     </div>
