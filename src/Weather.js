@@ -79,8 +79,8 @@ return (
         </div>
       </div>
       <small>
-      <a href="https://github.com/Connie-oyoyo/forecast-react"> Open-source code </a>
-      by Connie Oyoyo 
+      <a href="https://github.com/Connie-oyoyo/forecast-react" target="_blank" rel="noreferrer"> 
+      Open-source code </a> by Connie Oyoyo 
       </small>
     </div>
   );
