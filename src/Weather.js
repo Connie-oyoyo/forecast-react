@@ -1,18 +1,17 @@
  import React from "react";
- import "bootstrap/dist/css/bootstrap.min.css";
  import "./Weather.css";
  export default function Weather() {
 return (
     <div className="Weather">
-      <div className="weather">
-        <form className="mb-4">
-          <div className="row">
+        <form>
+          <div className="row mb-4">
             <div className="col-9">
               <input
                 type="search"
                 placeholder="Enter city"
-                class="form-control"
+                className="form-control"
                 autoComplete="off"
+                autoFocus="on"
               />
             </div>
             <div className="col-3">
@@ -78,10 +77,5 @@ return (
           </div>
         </div>
       </div>
-      <small>
-      <a href="https://github.com/Connie-oyoyo/forecast-react" target="_blank" rel="noreferrer"> 
-      Open-source code </a> by Connie Oyoyo 
-      </small>
-    </div>
   );
 }
