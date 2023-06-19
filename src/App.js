@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-      <Weather />
+      <Weather defaultcity="Madrid" />
       <footer>
       <a href="https://github.com/Connie-oyoyo/forecast-react" target="_blank" rel="noreferrer"> 
       Open-source code </a> by Connie Oyoyo

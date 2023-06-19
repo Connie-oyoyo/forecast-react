@@ -1,6 +1,24 @@
- import React from "react";
+ import React, { useState } from "react";
+ import axios from "axios";
  import "./Weather.css";
- export default function Weather() {
+ import FormatDate from "./FormatDate";
+ export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function showResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      date: new Date(response.data.dt * 1000),
+      city: response.data.name,
+      description: response.data.weather[0].description,
+      iconUrl: "https://cdn-icons-png.flaticon.com/128/10034/10034791.png"
+              
+    });
+  }
+  if (weatherData.ready) {
 return (
     <div className="Weather">
         <form>
@@ -23,23 +41,23 @@ return (
             </div>
           </div>
         </form>
-        <h1>Madrid</h1>
+        <h1>{weatherData.city}</h1>
         <ul>
-          <li> Last updated Thursday</li>
-          <li>cloudy</li>
+          <li>
+          <formatDate date={weatherData.date.getDay} />
+          </li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row">
           <div className="col-6">
             <div className="d-flex weather-temperature">
               <img
-                src="https://cdn-icons-png.flaticon.com/128/10034/10034791.png"
-                alt="cloudy"
-              />
+                src={weatherData.iconUrl}
+                alt={weatherData.description} />
               <div>
-                <strong></strong>
                 <span className="units">
                   <a href="/" id="celsius-link" class="active">
-                    <strong>20</strong> ºC
+                    <strong>{Math.round(weatherData.temperature)}</strong> ºC
                   </a>{" "}
                   |
                   <a href="/" id="fahrenheit-link">
@@ -52,10 +70,10 @@ return (
           <div className="col-6">
             <ul>
               <li>
-                Humidity: <span id="humidity"></span>10%{" "}
+                Humidity: <span id="humidity"></span>{weatherData.humidity}%
               </li>
               <li>
-                Wind: <span id="wind"></span>30 Km/H
+                Wind: <span id="wind"></span> {weatherData.wind} Km/H
               </li>
             </ul>
           </div>
@@ -78,4 +96,10 @@ return (
         </div>
       </div>
   );
+} else { 
+const apiKey = "d1a86552de255334f6117b348c4519bd"
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultcity}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showResponse);
+  return "Loading..."
 }
+ }
