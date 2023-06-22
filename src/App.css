@@ -5,7 +5,7 @@
   margin: 40px auto;
 
 }
-.small {
+  footer {
   font-size: 14px;
   margin: 15px;
   margin-bottom: 0;
@@ -17,18 +17,12 @@ h1 {
   margin-bottom: 0;
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: 70px;
-  line-height: 28px;
-  margin-bottom: 0;
-}
-
 li {
   list-style: none;                                                                   
   font-size: 14px;
   font-weight: 20px;
   line-height: 21px;
+  margin-bottom: 5px;
 }
 
 li:first-letter {
