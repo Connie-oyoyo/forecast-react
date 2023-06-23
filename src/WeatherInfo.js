@@ -23,7 +23,6 @@ export default function WeatherInfo(props) {
     <WeatherTemperature celsius={props.data.temperature} />
 </div>
 </div>
-</div>
 <div className="col-6">
 <ul>
 <li>
@@ -34,6 +33,7 @@ Wind: {props.data.wind} Km/H
 </li>
 </ul> 
 </div>     
+</div>
 </div>
 );
 }

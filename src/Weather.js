@@ -14,8 +14,8 @@
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
       description: response.data.weather[0].description,
-      iconUrl: "https://openweathermap.org/img/wn/04d@2x.png"
-              
+      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+
     });
   }
   function search() {
@@ -43,7 +43,7 @@ return (
                 className="form-control"
                 autoComplete="off"
                 autoFocus="on"
-                onchange={changeCity}
+                onChange={changeCity}
               />
             </div>
             <div className="col-3">
