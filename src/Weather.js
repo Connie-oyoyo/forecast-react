@@ -2,12 +2,16 @@
  import axios from "axios";
  import "./Weather.css";
  import WeatherInfo from "./WeatherInfo";
+ import WeatherForecast from "./WeatherForecast";
  export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultcity);
   function showResponse(response) {
+    console.log(response.data);
+
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -19,8 +23,9 @@
     });
   }
   function search() {
-  const apiKey = "d1a86552de255334f6117b348c4519bd"
+  const apiKey = "caa883a4a60d93878755b08a933f74ea"
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(showResponse);
   }
 
@@ -56,6 +61,7 @@ return (
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
   );
 } else { 
